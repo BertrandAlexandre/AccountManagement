@@ -106,8 +106,8 @@ mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes
 Après avoir téléchargé les dépendances liées à l’archetype, springboot vous demandera la configuration de votre projet.<br/>
 Voilà un exemple de configuration :
 ```
-Define value for property 'groupId': fr.ratier.am
-Define value for property 'artifactId': account-managment
+Define value for property 'groupId': my.package.project
+Define value for property 'artifactId': project-name
 Define value for property 'version':
 Define value for property 'package':
 ```
@@ -185,18 +185,18 @@ REST est une architecture dont les principales méthodes ressemblent fortement a
 
 Les ressources sont représentées sous la forme de collections (ensemble de ressources) :
 ```
-http://localhost:8080/api/users
+http://localhost:8080/api/collection
 ```
 > Les collections sont toujours nommées au pluriel. Exemple : __users__
 
 Chaque ressource d'une collection est accessible via un identifiant unique :
 
 ```
-http://localhost:8080/api/users/1
+http://localhost:8080/api/collection/1
 ```
 Les ressources peuvent elle même contenir des collections :
 ```
-http://localhost:8080/api/users/1/accounts
+http://localhost:8080/api/collection/1/subcollection
 ```
 
 Les effets des méthodes sur les collections sont les suivants :
