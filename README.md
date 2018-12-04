@@ -185,18 +185,18 @@ REST est une architecture dont les principales méthodes ressemblent fortement a
 
 Les ressources sont représentées sous la forme de collections (ensemble de ressources) :
 ```
-http://localhost:8080/api/collection
+http://localhost:8080/api/ressources
 ```
-> Les collections sont toujours nommées au pluriel. Exemple : __users__
+> Les collections sont toujours nommées au pluriel. Exemple : __ressources__
 
 Chaque ressource d'une collection est accessible via un identifiant unique :
 
 ```
-http://localhost:8080/api/collection/1
+http://localhost:8080/api/ressources/1
 ```
 Les ressources peuvent elle même contenir des collections :
 ```
-http://localhost:8080/api/collection/1/subcollection
+http://localhost:8080/api/ressources/1/subressources
 ```
 
 Les effets des méthodes sur les collections sont les suivants :
