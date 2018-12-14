@@ -8,23 +8,23 @@ import javax.validation.constraints.NotNull;
 import fr.alexandrebertrand.am.model.Gender;
 
 /**
- * Dto for user creation.
+ * DTO for user creation
  */
 public class UserCreationDto {
 
     /*
-     * Attributes.
+     * Attributes
      */
 
-    /** First name of the user. */
+    /** First name of the user */
     @NotBlank(message = "First name should be filled!")
     private String firstName;
 
-    /** Last name of the user. */
+    /** Last name of the user */
     @NotBlank(message = "Last name should be filled!")
     private String lastName;
 
-    /** Born date of the user. */
+    /** Born date of the user */
     @NotNull(message = "Born date should be filled!")
     private LocalDate bornDate;
 
@@ -32,11 +32,11 @@ public class UserCreationDto {
     @NotNull(message = "Gender should be filled!")
     private Gender gender;
 
-    /** Profession of the user. */
+    /** Profession of the user */
     private String profession;
 
     /*
-     * Getters & Setters.
+     * Getters & Setters
      */
 
     public String getFirstName() {

@@ -22,39 +22,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Account resource.
+ * Account resource
  */
 @RestController
 @RequestMapping(Urls.API_ACCOUNTS)
 public class AccountResource {
 
-	/** Account managment service. */
-	private AccountService accountService;
+    /** Account management service */
+    private AccountService accountService;
 
-	public AccountResource(AccountService accountService) {
-		this.accountService = accountService;
-	}
+    public AccountResource(AccountService accountService) {
+        this.accountService = accountService;
+    }
 
     @GetMapping
     public List<Account> list() {
-		return accountService.findAll();
+        return accountService.findAll();
     }
-	
-	@GetMapping("/{id}")
+    
+    @GetMapping("/{id}")
     public Account get(@PathVariable Long id) {
-		return accountService.findOne(id);
-	}
-	
-	@PostMapping
-	public ResponseEntity create(@RequestBody @Valid AccountCreationDto dto) throws URISyntaxException {
-		Long id = accountService.create(dto);
-		return ResponseEntity.created(new URI(Urls.API_ACCOUNTS + "/" + id)).build();
-	}
+        return accountService.findOne(id);
+    }
+    
+    @PostMapping
+    public ResponseEntity create(@RequestBody @Valid AccountCreationDto dto) throws URISyntaxException {
+        Long id = accountService.create(dto);
+        return ResponseEntity.created(new URI(Urls.API_ACCOUNTS + "/" + id)).build();
+    }
 
-	@PatchMapping("/{id}")
-	public ResponseEntity update(@PathVariable Long id, @RequestBody @Valid AccountUpdateDto dto) {
-		accountService.update(id, dto);
-		return ResponseEntity.noContent().build();
-	}
-	
+    @PatchMapping("/{id}")
+    public ResponseEntity update(@PathVariable Long id, @RequestBody @Valid AccountUpdateDto dto) {
+        accountService.update(id, dto);
+        return ResponseEntity.noContent().build();
+    }
+    
 }

@@ -22,39 +22,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * User resource.
+ * User resource
  */
 @RestController
 @RequestMapping(Urls.API_USERS)
 public class UserResource {
 
-	/** User managment service. */
-	private UserService userService;
+    /** User management service */
+    private UserService userService;
 
-	public UserResource(UserService userService) {
-		this.userService = userService;
-	}
+    public UserResource(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping
     public List<User> list() {
-		return userService.findAll();
+        return userService.findAll();
     }
-	
-	@GetMapping("/{id}")
+    
+    @GetMapping("/{id}")
     public User get(@PathVariable Long id) {
-		return userService.findOne(id);
-	}
-	
-	@PostMapping
-	public ResponseEntity create(@RequestBody @Valid UserCreationDto dto) throws URISyntaxException {
-		Long id = userService.create(dto);
-		return ResponseEntity.created(new URI(Urls.API_USERS + "/" + id)).build();
-	}
+        return userService.findOne(id);
+    }
+    
+    @PostMapping
+    public ResponseEntity create(@RequestBody @Valid UserCreationDto dto) throws URISyntaxException {
+        Long id = userService.create(dto);
+        return ResponseEntity.created(new URI(Urls.API_USERS + "/" + id)).build();
+    }
 
-	@PatchMapping("/{id}")
-	public ResponseEntity update(@PathVariable Long id, @RequestBody @Valid UserUpdateDto dto) {
-		userService.update(id, dto);
-		return ResponseEntity.noContent().build();
-	}
-	
+    @PatchMapping("/{id}")
+    public ResponseEntity update(@PathVariable Long id, @RequestBody @Valid UserUpdateDto dto) {
+        userService.update(id, dto);
+        return ResponseEntity.noContent().build();
+    }
+    
 }
