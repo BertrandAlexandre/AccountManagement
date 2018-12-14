@@ -13,18 +13,18 @@ import fr.alexandrebertrand.am.repository.AccountRepository;
 import fr.alexandrebertrand.am.repository.UserRepository;
 
 /**
- * Implementation of the account management service.
+ * Implementation of the account management service
  */
 @Service
 public class AccountServiceImpl implements AccountService {
 
-    /** Deposit of accounts. */
+    /** Deposit of accounts */
     private AccountRepository accountRepository;
 
-    /** Deposit of users. */
+    /** Deposit of users */
     private UserRepository userRepository;
 
-    /** User management service. */
+    /** User management service */
     private final UserService userService;
 
     public AccountServiceImpl(AccountRepository accountRepository,
@@ -63,13 +63,13 @@ public class AccountServiceImpl implements AccountService {
                 .orElseThrow(ResourceNotFoundException::new);
         Account a = new Account(dto.getUsername(), dto.getDescription(), u);
         accountRepository.save(a);
-        userRepository.save(u); // persistance
+        userRepository.save(u); // persistence
         return a.getId();
     }
 
-	@Override
-	public void update(Long id, AccountUpdateDto dto) {
-		Account a = accountRepository.findById(id)
+    @Override
+    public void update(Long id, AccountUpdateDto dto) {
+        Account a = accountRepository.findById(id)
                 .orElseThrow(ResourceNotFoundException::new);
         if (dto.getUsername() != null)
             a.setUsername(dto.getUsername());

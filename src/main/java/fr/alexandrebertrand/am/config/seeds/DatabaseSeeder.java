@@ -22,7 +22,7 @@ import fr.alexandrebertrand.am.repository.AccountRepository;
 import fr.alexandrebertrand.am.repository.UserRepository;
 
 /**
- * Initializes a dataset for the application in development mode.
+ * Initializes a dataset for the application in development mode
  */
 @Component
 @Profile("dev")
@@ -74,18 +74,18 @@ public class DatabaseSeeder implements CommandLineRunner {
                 admin.setUser(u);
                 accountRepository.save(admin);
             }
-            userRepository.save(u); // persistance
+            userRepository.save(u); // persistence
         });
     }
 
     /**
-     * Load data from a file present in resources/data/ .
+     * Load data from a file present in resources/data/
      *
-     * @throws IOException Error linked to the data file.
-     * @param path Relative path to the .json file containing the data.
-     * @param tr   Type of data to recover.
-     * @param <T>  Type of data contained in the file.
-     * @return The loaded data.
+     * @throws IOException Error linked to the data file
+     * @param path Relative path to the .json file containing the data
+     * @param tr   Type of data to recover
+     * @param <T>  Type of data contained in the file
+     * @return The loaded data
      */
     public static <T> T loadData(String path, TypeReference tr) throws IOException {
         try {

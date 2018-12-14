@@ -1,22 +1,22 @@
 package fr.alexandrebertrand.am.dto;
 
 /**
- * Dto for account update.
+ * DTO for account update
  */
 public class AccountUpdateDto {
 
     /*
-     * Attributes.
+     * Attributes
      */
 
-    /** Username of the account. */
+    /** User name of the account */
     private String username;
 
-    /** Description of the account. */
+    /** Description of the account */
     private String description;
 
     /*
-     * Getters.
+     * Getters & Setters
      */
 
     public String getUsername() {

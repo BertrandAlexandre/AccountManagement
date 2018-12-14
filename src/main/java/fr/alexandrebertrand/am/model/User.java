@@ -9,29 +9,29 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 /**
- * User of the application.
+ * User of the application
  */
 @Entity
 public class User {
 
     /*
-     * Attributes.
+     * Attributes
      */
 
-    /** Uniq identifier of an user. */
+    /** Unique identifier of an user */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /** First name of the user. */
+    /** First name of the user */
     @NotBlank(message = "First name should be filled!")
     private String firstName;
 
-    /** Last name of the user. */
+    /** Last name of the user */
     @NotBlank(message = "Last name should be filled!")
     private String lastName;
 
-    /** Born date of the user. */
+    /** Born date of the user */
     @NotNull(message = "Born date should be filled!")
     private LocalDate bornDate;
 
@@ -39,23 +39,23 @@ public class User {
     @NotNull(message = "Gender should be filled!")
     private Gender gender;
 
-    /** Profession of the user. */
+    /** Profession of the user */
     private String profession;
 
-    /** Creation date of the user. */
+    /** Creation date of the user */
     @NotNull(message = "Creation date should be filled!")
     private LocalDateTime creationDate;
 
-    /** Last update date of the user. */
+    /** Last update date of the user */
     @NotNull(message = "Last update date should be filled!")
     private LocalDateTime updateDate;
    
-    /** Accounts of the user. */
+    /** Accounts of the user */
     @OneToMany(mappedBy = "user")
     private List<Account> accounts;
 
     /*
-     * Constructors.
+     * Constructors
      */
 
     /**
@@ -67,13 +67,13 @@ public class User {
     }
 
     /**
-     * Initialize a new user.
+     * Initialize a new user
      * 
-     * @param firstName  First name of the user.
-     * @param lastName   Last name of the user.
-     * @param bornDate   Born date of the user.
-     * @param gender     Gender of the user.
-     * @param profession Profession of the user.
+     * @param firstName  First name of the user
+     * @param lastName   Last name of the user
+     * @param bornDate   Born date of the user
+     * @param gender     Gender of the user
+     * @param profession Profession of the user
      */
     public User(String firstName, String lastName, LocalDate bornDate, Gender gender, String profession) {
         this.firstName = firstName;
@@ -86,7 +86,7 @@ public class User {
     }
 
     /*
-     * Getters & Setters.
+     * Getters & Setters
      */
 
     public Long getId() {

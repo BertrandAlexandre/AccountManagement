@@ -11,12 +11,12 @@ import fr.alexandrebertrand.am.exception.ResourceNotFoundException;
 import fr.alexandrebertrand.am.repository.UserRepository;
 
 /**
- * Implementation of the user management service.
+ * Implementation of the user management service
  */
 @Service
 public class UserServiceImpl implements UserService {
 
-    /** Deposit of users. */
+    /** Deposit of users */
     private UserRepository userRepository;
 
     public UserServiceImpl(UserRepository userRepository) {
@@ -44,11 +44,11 @@ public class UserServiceImpl implements UserService {
         u.setProfession(dto.getProfession());
         userRepository.save(u);
         return u.getId();
-	}
+    }
 
-	@Override
-	public void update(Long id, UserUpdateDto dto) {
-		User u = userRepository.findById(id)
+    @Override
+    public void update(Long id, UserUpdateDto dto) {
+        User u = userRepository.findById(id)
                 .orElseThrow(ResourceNotFoundException::new);
         if (dto.getFirstName() != null)
             u.setFirstName(dto.getFirstName());
@@ -61,6 +61,6 @@ public class UserServiceImpl implements UserService {
         if (dto.getProfession() != null)
             u.setProfession(dto.getProfession());
         userRepository.save(u);
-	}
+    }
 
 }

@@ -18,7 +18,7 @@ import fr.alexandrebertrand.am.dto.*;
 import reactor.core.publisher.Mono;
 
 /**
- * Unit test of the App.
+ * Unit test of the application
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -29,7 +29,7 @@ public class AccountManagementAppTest {
     private WebTestClient webTestClient;
 
     /*
-     * User managment
+     * User management
      */
 
     @Test

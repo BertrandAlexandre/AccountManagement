@@ -21,35 +21,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Account resource.
+ * Account resource
  */
 @RestController
 @RequestMapping(Urls.API_USERS + "/{userId}/accounts")
 public class UserAccountResource {
 
-	/** Account managment service. */
-	private AccountService accountService;
+    /** Account management service */
+    private AccountService accountService;
 
-	public UserAccountResource(AccountService accountService) {
-		this.accountService = accountService;
-	}
-
-	@GetMapping
-    public List<Account> list(@PathVariable Long userId) {
-		return accountService.findAllByUser(userId);
+    public UserAccountResource(AccountService accountService) {
+        this.accountService = accountService;
     }
-	
-	@GetMapping("/{id}")
-    public Account get(@PathVariable Long userId, @PathVariable Long id) {
-		return accountService.findOneByUser(id, userId);
-	}
 
-	@PostMapping
-	public ResponseEntity create(@PathVariable Long userId, @RequestBody @Valid AccountCreationDto dto) throws URISyntaxException {
-		if (dto.getUserId() != userId)
-			throw new ResourceNotFoundException();
-		Long id = accountService.create(dto);
-		return ResponseEntity.created(new URI(Urls.API_USERS + "/" + userId + "/accounts/" + id)).build();
-	}
+    @GetMapping
+    public List<Account> list(@PathVariable Long userId) {
+        return accountService.findAllByUser(userId);
+    }
+    
+    @GetMapping("/{id}")
+    public Account get(@PathVariable Long userId, @PathVariable Long id) {
+        return accountService.findOneByUser(id, userId);
+    }
+
+    @PostMapping
+    public ResponseEntity create(@PathVariable Long userId, @RequestBody @Valid AccountCreationDto dto) throws URISyntaxException {
+        if (dto.getUserId() != userId)
+            throw new ResourceNotFoundException();
+        Long id = accountService.create(dto);
+        return ResponseEntity.created(new URI(Urls.API_USERS + "/" + userId + "/accounts/" + id)).build();
+    }
 
 }

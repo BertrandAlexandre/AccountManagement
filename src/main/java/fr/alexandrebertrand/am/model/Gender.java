@@ -1,14 +1,14 @@
 package fr.alexandrebertrand.am.model;
 
 /**
- * Gender of an user.
+ * Gender of an user
  */
 public enum Gender {
 
-    /** Masculine. */
+    /** Masculine */
     MASCULINE,
 
-    /** Feminine. */
+    /** Feminine */
     FEMININE
 
 }

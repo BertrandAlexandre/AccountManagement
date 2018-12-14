@@ -4,27 +4,27 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 /**
- * Dto for account creation.
+ * DTO for account creation
  */
 public class AccountCreationDto {
 
     /*
-     * Attributes.
+     * Attributes
      */
 
-    /** Username of the account. */
-    @NotBlank(message = "Username should be filled")
+    /** User name of the account */
+    @NotBlank(message = "User name should be filled")
     private String username;
 
-    /** Description of the account. */
+    /** Description of the account */
     private String description;
 
-    /** Identifier of the user who owns this account. */
+    /** Identifier of the user who owns this account */
     @NotNull(message = "User identifier should be filled!")
     private Long userId;
 
     /*
-     * Getters & Setters.
+     * Getters & Setters
      */
 
     public String getUsername() {

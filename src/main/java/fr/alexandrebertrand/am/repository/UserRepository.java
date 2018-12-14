@@ -7,14 +7,14 @@ import org.springframework.data.repository.CrudRepository;
 import fr.alexandrebertrand.am.model.User;
 
 /**
- * Deposit of users.
+ * Deposit of users
  */
 public interface UserRepository extends CrudRepository<User, Long> {
 
     /**
-     * Get all users.
+     * Get all users
      * 
-     * @return List all users.
+     * @return List all users
      */
     List<User> findAllBy();
 

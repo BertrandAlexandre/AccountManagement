@@ -5,31 +5,31 @@ import java.time.LocalDate;
 import fr.alexandrebertrand.am.model.Gender;
 
 /**
- * Dto for user update.
+ * DTO for user update
  */
 public class UserUpdateDto {
 
     /*
-     * Attributes.
+     * Attributes
      */
 
-    /** First name of the user. */
+    /** First name of the user */
     private String firstName;
 
-    /** Last name of the user. */
+    /** Last name of the user */
     private String lastName;
 
-    /** Born date of the user. */
+    /** Born date of the user */
     private LocalDate bornDate;
 
     /** Gender of the user */
     private Gender gender;
 
-    /** Profession of the user. */
+    /** Profession of the user */
     private String profession;
 
     /*
-     * Getters.
+     * Getters & Setters
      */
 
     public String getFirstName() {
