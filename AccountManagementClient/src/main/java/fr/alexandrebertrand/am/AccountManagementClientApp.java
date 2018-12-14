@@ -18,104 +18,154 @@ public class AccountManagementClientApp {
     /** Account service of the application */
     private static AccountService accountService;
     
+    /** User account service of the application */
+    private static UserAccountService userAccountService;
+    
     public static void main( String[] args ) {
-        
         userService = new UserService();
         accountService = new AccountService();
+        userAccountService = new UserAccountService();
         
-        /* User management */
-        
+        manageUsers();
+        manageAccounts();
+        manageUserAccount();
+    }
+    
+    private static void manageUsers() {
         System.out.println("### User management");
         
         // Create first user
         
-        User firstUser = new User();
-        firstUser.setFirstName("John");
-        firstUser.setLastName("Smith");
-        firstUser.setBornDate(LocalDate.of(1986, 6, 23));
-        firstUser.setGender(Gender.MASCULINE);
-        firstUser.setProfession("Digital Technology Engineer");
-        userService.create(firstUser);
+        User newUserA = new User();
+        newUserA.setFirstName("John");
+        newUserA.setLastName("Smith");
+        newUserA.setBornDate(LocalDate.of(1986, 6, 23));
+        newUserA.setGender(Gender.MASCULINE);
+        newUserA.setProfession("Digital Technology Engineer");
+        userService.create(newUserA);
         
         // Create an user
         
-        User newUser = new User();
-        newUser.setFirstName("Miranda");
-        newUser.setLastName("Oliver");
-        newUser.setBornDate(LocalDate.of(1978, 9, 5));
-        newUser.setGender(Gender.FEMININE);
-        newUser.setProfession("Chief Technology Officer");
-        userService.create(newUser);
-        System.out.println("\nA new user has been created!");
-        
-        // Get an user
-        
-        System.out.println("\nFirst user created :");
-        User outFirstUser = userService.get(1l);
-        System.out.println(outFirstUser.toString());
+        User newUserB = new User();
+        newUserB.setFirstName("Miranda");
+        newUserB.setLastName("Oliver");
+        newUserB.setBornDate(LocalDate.of(1978, 9, 5));
+        newUserB.setGender(Gender.FEMININE);
+        newUserB.setProfession("Chief Technology Officer");
+        userService.create(newUserB);
+        System.out.println("\nNew users have been created!");
         
         // List users
         
-        System.out.println("\nList of users :");
         List<User> users = userService.list();
+        System.out.println("\nList of users:");
         for (User user : users) {
             System.out.println(user.toString());
         }
         
+        // Get an user
+        
+        int pos = new Random().nextInt(users.size());
+        User user = userService.get(users.get(pos).getId());
+        System.out.println("\nAn user:");
+        System.out.println(user.toString());
+        
         // Update an user
         
-        System.out.println("\nAn user has been updated!");
-        Random r = new Random();
-        User userToUpdate = users.get(r.nextInt(users.size()));
-        System.out.println("Before: " + userToUpdate.toString());
-        userToUpdate.setProfession("In transition");
-        userService.update(userToUpdate);
-        User updatedUser = userService.get(userToUpdate.getId());
-        System.out.println("After:  " + updatedUser.toString());
-        
-        /* Account management */
-        
+        user.setProfession("In transition");
+        userService.update(user);
+        User updatedUser = userService.get(user.getId());
+        System.out.println("\nUser \"" + updatedUser.getFirstName() +
+                "\" has been updated:");
+        System.out.println(updatedUser.toString());
+    }
+    
+    private static void manageAccounts() {
         System.out.println("\n\n### Account management");
+        List<User> users = userService.list();
+        User user = users.get(new Random().nextInt(users.size()));
         
         // Create first account
         
-        Account firstAccount = new Account();
-        firstAccount.setUsername("fst");
-        firstAccount.setDescription("First account");
-        accountService.create(firstAccount);
+        Account newAccountA = new Account();
+        newAccountA.setUsername("fst");
+        newAccountA.setDescription("An account");
+        newAccountA.setUserId(user.getId());
+        accountService.create(newAccountA);
         
         // Create an account
         
-        Account newAccount = new Account();
-        newAccount.setUsername("olm");
-        newAccount.setDescription("Main account of Miranda");
-        accountService.create(newAccount);
-        System.out.println("\nA new account has been created!");
-        
-        // Get an account
-        
-        System.out.println("\nFirst account created :");
-        Account outFirstAccount = accountService.get(1l);
-        System.out.println(outFirstAccount.toString());
+        Account newAccountB = new Account();
+        newAccountB.setUsername("olm");
+        newAccountB.setDescription("Sub account of " + user.getFirstName());
+        newAccountB.setUserId(user.getId());
+        accountService.create(newAccountB);
+        System.out.println("\nNew accounts have been created!");
         
         // List accounts
         
-        System.out.println("\nList of accounts :");
         List<Account> accounts = accountService.list();
+        System.out.println("\nList of accounts:");
         for (Account account : accounts) {
             System.out.println(account.toString());
         }
         
+        // Get an account
+        
+        int pos = new Random().nextInt(accounts.size());
+        Account account = accountService.get(accounts.get(pos).getId());
+        System.out.println("\nAn account:");
+        System.out.println(account.toString());
+        
         // Update an account
         
-        System.out.println("\nAn account has been updated!");
-        Account accountToUpdate = accounts.get(r.nextInt(accounts.size()));
-        System.out.println("Before: " + accountToUpdate.toString());
-        accountToUpdate.setDescription("This account has been modified");
-        accountService.update(accountToUpdate);
-        Account updatedAccount = accountService.get(accountToUpdate.getId());
-        System.out.println("After:  " + updatedAccount.toString());
+        account.setDescription("This account has been modified");
+        account.setUserId(user.getId());
+        accountService.update(account);
+        Account updatedAccount = accountService.get(account.getId());
+        System.out.println("\nAccount \"" + updatedAccount.getUsername() +
+                "\" has been updated:");
+        System.out.println(updatedAccount.toString());
+    }
+    
+    private static void manageUserAccount() {
+        System.out.println("\n\n### User account management");
+        List<User> users = userService.list();
+        User user = users.get(new Random().nextInt(users.size()));
         
+        // Create an user account
+        
+        Account newAccountA = new Account();
+        newAccountA.setUsername("uas");
+        newAccountA.setDescription("New account for " + user.getFirstName());
+        newAccountA.setUserId(user.getId());
+        userAccountService.create(newAccountA);
+        
+        // Create an user account
+        
+        Account newAccountB = new Account();
+        newAccountB.setUsername("uat");
+        newAccountB.setDescription("Another account for " + user.getFirstName());
+        newAccountB.setUserId(user.getId());
+        userAccountService.create(newAccountB);
+        System.out.println("\nNew accounts has been created for " +
+                user.getFirstName() + "!");
+        
+        // List user accounts
+        
+        System.out.println("\nList of " + user.getFirstName() + " accounts:");
+        List<Account> accounts = userAccountService.list(user.getId());
+        for (Account account : accounts) {
+            System.out.println(account.toString());
+        }
+        
+        // Get an user account
+        
+        int pos = new Random().nextInt(user.getAccounts().size());
+        Long id = user.getAccounts().get(pos).getId();
+        Account outAccount = userAccountService.get(id, user.getId());
+        System.out.println("\nAn account of " + user.getFirstName() + ":");
+        System.out.println(outAccount.toString());
     }
 
 }

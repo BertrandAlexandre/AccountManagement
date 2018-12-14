@@ -12,12 +12,11 @@ import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 
 import fr.alexandrebertrand.am.config.Urls;
 import fr.alexandrebertrand.am.model.Account;
-import fr.alexandrebertrand.am.model.User;
 
 /**
- * Service of account resources
+ * Service of user account resources
  */
-public class AccountService {
+public class UserAccountService {
     
     /*
      * Attribute
@@ -33,7 +32,7 @@ public class AccountService {
     /**
      * Build a new user service
      */
-    public AccountService() {
+    public UserAccountService() {
         objectMapper = new ObjectMapper()
                    .registerModule(new ParameterNamesModule())
                    .registerModule(new Jdk8Module())
@@ -45,14 +44,16 @@ public class AccountService {
      */
     
     /**
-     * Get list of accounts
+     * Get list of users
      * 
-     * @return List of accounts
+     * @param userId Identifier of the user
+     * @return List of users
      */
-    public List<Account> list() {
+    public List<Account> list(Long userId) {
         List<Account> accounts = new ArrayList<>();
         try {
-            String input = ServiceReference.list(Urls.API_ACCOUNTS);
+            String input = ServiceReference.list(Urls.API_USERS + "/" + userId +
+                    "/accounts");
             accounts = objectMapper.readValue(input, new TypeReference<List<Account>>(){});
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,15 +62,17 @@ public class AccountService {
     }
     
     /**
-     * Get data from an account
+     * Get data from an user
      * 
-     * @param id Identifier of the account
-     * @return Searched account
+     * @param id     Identifier of the account
+     * @param userId Identifier of the user
+     * @return Searched user
      */
-    public Account get(Long id) {
+    public Account get(Long id, Long userId) {
         Account account = new Account();
         try {
-            String input = ServiceReference.get(Urls.API_ACCOUNTS, id);
+            String input = ServiceReference.get(Urls.API_USERS + "/" + userId +
+                    "/accounts", id);
             account = objectMapper.readValue(input, Account.class);
         } catch (IOException e) {
             e.printStackTrace();
@@ -78,31 +81,34 @@ public class AccountService {
     }
     
     /**
-     * Create a new account
+     * Create a new user
      * 
-     * @param user Account to create
+     * @param account Account to create
      */
     public void create(Account account) {
         try {
             String output = objectMapper.writeValueAsString(account);
-            ServiceReference.create(Urls.API_ACCOUNTS, output);
+            ServiceReference.create(Urls.API_USERS + "/" + account.getUserId() +
+                    "/accounts", output);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     
     /**
-     * Update an account
+     * Update an user
      * 
-     * @param user Account to update
+     * @param account Account to update
      */
     public void update(Account account) {
         try {
             String output = objectMapper.writeValueAsString(account);
-            ServiceReference.update(Urls.API_ACCOUNTS, account.getId(), output);
+            ServiceReference.update(Urls.API_USERS + "/" + account.getUserId() +
+                    "/accounts", account.getId(), output);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 }
+

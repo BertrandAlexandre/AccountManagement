@@ -25,6 +25,9 @@ public class Account {
 
     /** Last update date of the account */
     private LocalDateTime updateDate;
+    
+    /** Identifier of the owner of this account */
+    private Long userId;
 
     /*
      * Constructors
@@ -89,6 +92,14 @@ public class Account {
 
     public LocalDateTime getUpdateDate() {
         return this.updateDate;
+    }
+    
+    public Long getUserId() {
+        return this.userId;
+    }
+    
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
 }

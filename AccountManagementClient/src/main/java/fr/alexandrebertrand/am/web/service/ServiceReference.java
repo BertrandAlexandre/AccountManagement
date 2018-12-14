@@ -90,7 +90,7 @@ public final class ServiceReference {
      * @throws IOException
      */
     public static void update(String strUrl, Long id, String output) throws IOException {
-        initConnection(strUrl + "/" + id, "PATCH", true);
+        initConnection(strUrl + "/" + id, "PUT", true);
         setOutput(output);
         getResponse(HttpURLConnection.HTTP_NO_CONTENT);
         connector.disconnect();
