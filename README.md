@@ -196,7 +196,7 @@ http://localhost:8080/api/ressources/1
 ```
 Les ressources peuvent elle même contenir des collections :
 ```
-http://localhost:8080/api/ressources/1/subressources
+http://localhost:8080/api/ressources/1/sousressources
 ```
 
 Les effets des méthodes sur les collections sont les suivants :
@@ -206,7 +206,6 @@ Les effets des méthodes sur les collections sont les suivants :
 | GET     | Récupère les éléments ou une représentation des éléments d'une collection |
 | POST    | Crée un nouvel élément dans une collection                                |
 | PUT     | Remplace une collection par une autre collection                          |
-| DELETE  | Supprime une collection                                                   |
 
 Les effets des méthodes sur les ressources sont les suivants
 
