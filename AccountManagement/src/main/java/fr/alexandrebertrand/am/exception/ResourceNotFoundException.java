@@ -5,12 +5,12 @@ package fr.alexandrebertrand.am.exception;
  */
 public class ResourceNotFoundException extends RuntimeException {
 
-    private static final long serialVersionUID = 6708413247236569688L;
+  private static final long serialVersionUID = 6708413247236569688L;
 
-    /**
-     * Constructs an instance of <code>ResourceNotFoundException</code>
-     */
-    public ResourceNotFoundException() {
-    }
+  /**
+   * Constructs an instance of <code>ResourceNotFoundException</code>
+   */
+  public ResourceNotFoundException() {
+  }
 
 }

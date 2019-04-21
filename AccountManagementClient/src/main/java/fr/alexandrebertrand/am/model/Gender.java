@@ -5,10 +5,10 @@ package fr.alexandrebertrand.am.model;
  */
 public enum Gender {
 
-    /** Masculine */
-    MASCULINE,
+  /** Masculine */
+  MASCULINE,
 
-    /** Feminine */
-    FEMININE
+  /** Feminine */
+  FEMININE
 
 }

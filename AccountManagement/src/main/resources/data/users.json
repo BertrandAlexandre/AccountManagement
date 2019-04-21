@@ -1,61 +1,61 @@
 [
-    {
-        "firstName": "Luc",
-        "lastName": "Legrand",
-        "gender": "MASCULINE",
-        "profession": "Computer scientist"
-    },
-    {
-        "firstName": "Flavie",
-        "lastName": "Girmiens",
-        "gender": "FEMININE"
-    },
-    {
-        "firstName": "Quentin",
-        "lastName": "Faure",
-        "gender": "MASCULINE",
-        "profession": "CTO"
-    },
-    {
-        "firstName": "Paul",
-        "lastName": "Blanc",
-        "gender": "MASCULINE"
-    },
-    {
-        "firstName": "Cedric",
-        "lastName": "Roussel",
-        "gender": "MASCULINE"
-    },
-    {
-        "firstName": "Marianne",
-        "lastName": "Henry",
-        "gender": "FEMININE",
-        "profession": "Human Ressources Leader"
-    },
-    {
-        "firstName": "Renaud",
-        "lastName": "Perrin",
-        "gender": "MASCULINE"
-    },
-    {
-        "firstName": "Clarisse",
-        "lastName": "Morin",
-        "gender": "FEMININE"
-    },
-    {
-        "firstName": "Sonia",
-        "lastName": "Lopez",
-        "gender": "FEMININE"
-    },
-    {
-        "firstName": "Henri",
-        "lastName": "Robin",
-        "gender": "MASCULINE"
-    },
-    {
-        "firstName": "Marc",
-        "lastName": "Hamill",
-        "gender": "MASCULINE",
-        "profession": "Jedi"
-    }
+  {
+    "firstName": "Luc",
+    "lastName": "Legrand",
+    "gender": "MASCULINE",
+    "profession": "Computer scientist"
+  },
+  {
+    "firstName": "Flavie",
+    "lastName": "Girmiens",
+    "gender": "FEMININE"
+  },
+  {
+    "firstName": "Quentin",
+    "lastName": "Faure",
+    "gender": "MASCULINE",
+    "profession": "CTO"
+  },
+  {
+    "firstName": "Paul",
+    "lastName": "Blanc",
+    "gender": "MASCULINE"
+  },
+  {
+    "firstName": "Cedric",
+    "lastName": "Roussel",
+    "gender": "MASCULINE"
+  },
+  {
+    "firstName": "Marianne",
+    "lastName": "Henry",
+    "gender": "FEMININE",
+    "profession": "Human Ressources Leader"
+  },
+  {
+    "firstName": "Renaud",
+    "lastName": "Perrin",
+    "gender": "MASCULINE"
+  },
+  {
+    "firstName": "Clarisse",
+    "lastName": "Morin",
+    "gender": "FEMININE"
+  },
+  {
+    "firstName": "Sonia",
+    "lastName": "Lopez",
+    "gender": "FEMININE"
+  },
+  {
+    "firstName": "Henri",
+    "lastName": "Robin",
+    "gender": "MASCULINE"
+  },
+  {
+    "firstName": "Marc",
+    "lastName": "Hamill",
+    "gender": "MASCULINE",
+    "profession": "Jedi"
+  }
 ]

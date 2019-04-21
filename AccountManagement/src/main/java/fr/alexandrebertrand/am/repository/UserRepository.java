@@ -11,11 +11,11 @@ import fr.alexandrebertrand.am.model.User;
  */
 public interface UserRepository extends CrudRepository<User, Long> {
 
-    /**
-     * Get all users
-     * 
-     * @return List all users
-     */
-    List<User> findAllBy();
+  /**
+   * Get all users
+   * 
+   * @return List all users
+   */
+  List<User> findAllBy();
 
 }
