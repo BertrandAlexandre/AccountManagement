@@ -25,26 +25,26 @@ import reactor.core.publisher.Mono;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AccountManagementAppTest {
 
-    @Autowired
-    private WebTestClient webTestClient;
+  @Autowired
+  private WebTestClient webTestClient;
 
-    /*
-     * User management
-     */
+  /*
+   * User management
+   */
 
-    @Test
-    public void createUser() {
-        UserCreationDto user = new UserCreationDto();
-        user.setFirstName("John");
-        user.setLastName("Smith");
-        user.setBornDate(LocalDate.of(1992, 11, 23));
-        user.setGender(Gender.MASCULINE);
-        this.webTestClient.post().uri("/api/users")
-                .contentType(MediaType.APPLICATION_JSON_UTF8)
-                .accept(MediaType.APPLICATION_JSON_UTF8)
-                .body(Mono.just(user), UserCreationDto.class)
-                .exchange()
-                .expectStatus().isCreated();
-    }
+  @Test
+  public void createUser() {
+    UserCreationDto user = new UserCreationDto();
+    user.setFirstName("John");
+    user.setLastName("Smith");
+    user.setBornDate(LocalDate.of(1992, 11, 23));
+    user.setGender(Gender.MASCULINE);
+    this.webTestClient.post().uri("/api/users")
+        .contentType(MediaType.APPLICATION_JSON_UTF8)
+        .accept(MediaType.APPLICATION_JSON_UTF8)
+        .body(Mono.just(user), UserCreationDto.class)
+        .exchange()
+        .expectStatus().isCreated();
+  }
 
 }

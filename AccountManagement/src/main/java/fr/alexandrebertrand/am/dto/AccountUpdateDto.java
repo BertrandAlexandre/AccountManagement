@@ -5,34 +5,34 @@ package fr.alexandrebertrand.am.dto;
  */
 public class AccountUpdateDto {
 
-    /*
-     * Attributes
-     */
+  /*
+   * Attributes
+   */
 
-    /** User name of the account */
-    private String username;
+  /** User name of the account */
+  private String username;
 
-    /** Description of the account */
-    private String description;
+  /** Description of the account */
+  private String description;
 
-    /*
-     * Getters & Setters
-     */
+  /*
+   * Getters & Setters
+   */
 
-    public String getUsername() {
-        return this.username;
-    }
+  public String getUsername() {
+    return this.username;
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-    public String getDescription() {
-        return this.description;
-    }
+  public String getDescription() {
+    return this.description;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
 }
